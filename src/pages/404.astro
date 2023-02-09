@@ -1,0 +1,29 @@
+---
+import PageLayout from "../layouts/PageLayout.astro";
+import { Picture } from "@astrojs/image/components";
+import peep from "./public/wrong.png";
+
+const widths = [450, 800];
+const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
+---
+
+<PageLayout title="404 Not found">
+  <section
+    class="flex min-h-screen w-full flex-col justify-center md:justify-around items-center md:flex-row px-8 py-4"
+  >
+    <div class="flex flex-col text-6xl">
+      <h2>¿Que haces aquí?</h2>
+      <a href="/" class="text-[#FF757A]">Volver al inicio</a>
+    </div>
+    <div class="">
+      <Picture
+        src={peep}
+        class="max-w-[350px]"
+        widths={widths}
+        sizes={sizes}
+        loading="eager"
+        alt="A floating astronaut in a space suit"
+      />
+    </div>
+  </section>
+</PageLayout>

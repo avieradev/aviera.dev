@@ -1,0 +1,31 @@
+---
+import { Picture } from "@astrojs/image/components";
+import peep from "./public/me.png";
+
+const widths = [450, 800];
+const sizes = "(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw";
+---
+
+<section
+  class="flex min-h-screen w-full flex-col justify-center md:justify-around items-center md:flex-row px-8 py-4"
+>
+  <div class="flex flex-col text-6xl">
+    <h2 class="animate__animated animate__shakeY">¡Hola!</h2>
+    <h2>me llamo</h2>
+    <h2><span class="text-[#FF757A] font-extrabold">A</span>drian</h2>
+    <h2><span class="text-[#FF757A] font-extrabold">VIERA</span></h2>
+    <h2>y soy</h2>
+    <h2>fullstack</h2>
+    <h2><span class="text-[#FF757A] font-extrabold">DEV</span>eloper</h2>
+  </div>
+  <div>
+    <Picture
+      src={peep}
+      class="max-w-[350px]"
+      widths={widths}
+      sizes={sizes}
+      loading="eager"
+      alt="A floating astronaut in a space suit"
+    />
+  </div>
+</section>

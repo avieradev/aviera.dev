@@ -1,0 +1,40 @@
+---
+import "@fontsource/montserrat";
+export interface Props {
+  title: String;
+}
+
+const { title } = Astro.props;
+const { generator, site } = Astro;
+
+const image = new URL("peeps.png", site);
+const description = "Aviera dev portfolio & blog";
+---
+
+<!DOCTYPE html>
+<html lang="en" class="h-full motion-safe:scroll-smooth" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <!-- social media -->
+    <meta property="og:title" content="Avieradev" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={image} />
+    <meta property="og:url" content={site} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+  </head>
+  <body class="min-h-screen w-full motion-safe:scroll-smooth bg-blue-50">
+    <slot />
+  </body>
+</html>
