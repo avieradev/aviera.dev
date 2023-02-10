@@ -1,10 +1,19 @@
 ---
+const { page = "inicio" } = Astro.props;
 ---
 
 <header
   class="absolute top-0 z-20 flex w-full items-center justify-end md:justify-center px-8 py-4 text-black"
 >
-  <a class="flex items-center gap-3 hover:!text-default" href="/blog">
-    <h1 class="text-[#FF757A]">B L O G</h1>
-  </a>
+  {
+    page === "inicio" ? (
+      <a class="flex items-center gap-3 hover:!text-default" href="/blog">
+        <h1 class="text-[#FF757A]">B L O G</h1>
+      </a>
+    ) : (
+      <a class="flex items-center gap-3 hover:!text-default" href="/">
+        <h1 class="text-[#FF757A]">H O M E</h1>
+      </a>
+    )
+  }
 </header>

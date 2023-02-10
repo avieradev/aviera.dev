@@ -3,17 +3,18 @@ import Layout from "./BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+import "../styles/posts.css";
+
 export interface Props {
   title: String;
-  page: String;
 }
 
-const { title, page = "inicio" } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <Layout {title}>
   <slot name="header">
-    <Header {page} />
+    <Header />
   </slot>
   <main>
     <slot />
@@ -22,3 +23,14 @@ const { title, page = "inicio" } = Astro.props;
     <Footer />
   </slot>
 </Layout>
+
+<style>
+  main {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    min-height: 100vh;
+    width: 70%;
+  }
+</style>

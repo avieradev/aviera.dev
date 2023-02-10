@@ -1,0 +1,33 @@
+---
+import { postDate } from "~/utils/dates";
+
+export interface Props {
+  title: string;
+  img: {
+    src: string;
+    alt: string;
+  };
+  publishDate: string;
+  slug: string;
+  preview: string;
+}
+const { title, img, publishDate, preview, slug } = Astro.props;
+const date = postDate(publishDate);
+---
+
+<div class="relative p-4 flex flex-row items-center">
+  <div class="md:w-[80%] w-full">
+    <a href=`/blog/${slug}` class="text-red-400 text-2xl font-extrabold">
+      <h1>{title}</h1>
+    </a>
+    <h3 class="mt-2 text-xs">{date}</h3>
+
+    <p class="mt-5 line-clamp-3 truncate...">{preview}</p>
+    <a href=`/blog/${slug}` class="mt-4 flex justify-end text-primary">
+      <p>Seguir leyendo &rarr;</p>
+    </a>
+  </div>
+  <div class="hidden md:block absolute right-0 w-[20%]">
+    <img src={img.src} alt={img.alt} class="" />
+  </div>
+</div>
